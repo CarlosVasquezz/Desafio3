@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Recursos</string>
+    <string name="app_name">Lista de Recursos</string>
+    <string name="error_fetching_resources">Error al obtener recursos</string>
+    <string name="error_message">Error: %1$s</string>
+    <string name="resource_added">Recurso añadido con éxito</string>
+    <string name="resource_updated">Recurso actualizado con éxito</string>
+    <string name="resource_deleted">Recurso eliminado con éxito</string>
 </resources>
