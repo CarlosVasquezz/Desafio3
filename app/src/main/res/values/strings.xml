@@ -5,4 +5,5 @@
     <string name="resource_added">Recurso añadido con éxito</string>
     <string name="resource_updated">Recurso actualizado con éxito</string>
     <string name="resource_deleted">Recurso eliminado con éxito</string>
+    <string name="image_desc">Descripción de la imagen</string>
 </resources>

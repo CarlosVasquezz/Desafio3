@@ -8,4 +8,3 @@ data class Recurso(
     val enlace: String,
     val imagen: String
 )
-

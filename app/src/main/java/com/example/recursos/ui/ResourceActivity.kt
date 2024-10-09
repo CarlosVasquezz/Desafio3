@@ -35,9 +35,14 @@ class ResourceActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val recursos = response.body() ?: emptyList()
                     Log.d("ResourceActivity", "Recursos: $recursos")
-                    adapter.updateRecursos(recursos) // Actualiza el adaptador con los recursos
+                    adapter.updateRecursos(recursos)
                 } else {
-                    Log.e("ResourceActivity", "Error en la respuesta: ${response.code()}, ${response.errorBody()?.string()}")
+                    Log.e(
+                        "ResourceActivity",
+                        "Error en la respuesta: ${response.code()}, ${
+                            response.errorBody()?.string()
+                        }"
+                    )
                 }
             }
 
@@ -47,4 +52,3 @@ class ResourceActivity : AppCompatActivity() {
         })
     }
 }
-
