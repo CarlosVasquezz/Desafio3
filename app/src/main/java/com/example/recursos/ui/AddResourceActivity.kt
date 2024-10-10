@@ -78,8 +78,11 @@ class AddResourceActivity : AppCompatActivity() {
         RetrofitClient.api.createRecurso(recurso).enqueue(object : Callback<Recurso> {
             override fun onResponse(call: Call<Recurso>, response: Response<Recurso>) {
                 if (response.isSuccessful) {
-                    setResult(Activity.RESULT_OK)
-                    finish()
+                    // Enviar el recurso agregado a la actividad que muestra la lista
+                    val intent = Intent()
+                    intent.putExtra("NEW_RESOURCE", response.body()) // Pasar el nuevo recurso
+                    setResult(Activity.RESULT_OK, intent) // Establecer el resultado con el nuevo recurso
+                    finish() // Cerrar la actividad actual
                 } else {
                     Toast.makeText(this@AddResourceActivity, "Error al agregar recurso", Toast.LENGTH_SHORT).show()
                 }

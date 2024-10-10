@@ -1,5 +1,6 @@
 package com.example.recursos.ui
 
+
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
@@ -116,12 +117,19 @@ class ResourceActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == ADD_RESOURCE_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            fetchResources() // Llama al método para obtener todos los recursos
+            data?.let {
+                val newResource: Recurso? = it.getParcelableExtra("NEW_RESOURCE") // Obtener el nuevo recurso
+                newResource?.let { recurso ->
+                    recursos.add(recurso) // Agregar el nuevo recurso a la lista
+                    resourceAdapter.notifyItemInserted(recursos.size - 1) // Notificar al adaptador de un nuevo ítem
+                }
+            }
+            fetchResources() // Llamar a fetchResources para asegurarse de que la lista esté actualizada
         }
     }
 
     private fun resetFilter() {
-        fetchResources() // Llama a fetchResources para restablecer la lista
-        searchEditText.text.clear() // Limpia el campo de búsqueda
+        fetchResources() // Restablecer y obtener todos los recursos
+        searchEditText.text.clear() // Limpiar el campo de búsqueda
     }
 }
